@@ -6,7 +6,7 @@
 ### App Walk-though
 `TODO://`
 
-<img src="https://imgur.com/a/auZM4Rt.gif" width=200><br>
+<img src="https://imgur.com/a/auZM4Rt" width=200><br>
 
 `TODO://
 

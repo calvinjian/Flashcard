@@ -1,14 +1,11 @@
 ## Flashcard
 
 ### App Description
-`TODO:// A basic flashcard app with a single flashcard.
+`A basic flashcard app with a single flashcard.
 
 ### App Walk-though
-`TODO://`
 
 <img src="https://imgur.com/krQivlJ.gif" width=200><br>
-
-`TODO://
 
 ## Required
 - [X] Create New Project in Android Studio

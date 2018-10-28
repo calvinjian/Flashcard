@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCardActivity">
+
+    <EditText
+        android:id="@+id/addQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:inputType="textMultiLine"
+        android:hint="Add the Question Here" />
+
+    <EditText
+        android:id="@+id/addAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:hint="Enter the Answer Here"
+        android:layout_below="@id/addQuestion"/>
+
+    <ImageView
+        android:id="@+id/saveBtn"
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:src="@drawable/save"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+    <ImageView
+        android:id="@+id/closeBtn"
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:src="@drawable/close"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>

@@ -7,6 +7,8 @@ A basic flashcard app with a single flashcard.
 
 ### App Walk-though
 
+<img src="https://imgur.com/AjwXqRg.gif" width=200><br>
+
 ## Required
 - [X] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
 - [X] The 'Add Card Screen' has a cancel button to take the user back to the main screen

@@ -1,6 +1,6 @@
 ## Flashcard
 
-## Lab 1
+## Lab 2
 
 ### App Description
 A basic flashcard app with a single flashcard.

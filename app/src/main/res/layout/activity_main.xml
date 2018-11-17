@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
 
     <TextView
@@ -14,9 +13,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:gravity="center"
+        android:layout_margin="15dp"
         android:text="Who is the 44th President of the United States"
-        android:textColor="#ffffff"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:background="@drawable/solid_color_shape"
+        android:elevation="5sp"/>
 
     <TextView
         android:id="@+id/flashcard_answer"
@@ -25,23 +26,64 @@
         android:text="Barack Obama"
         android:textSize="40sp"
         android:gravity="center"
-        android:visibility="invisible"/>
+        android:layout_margin="15dp"
+        android:visibility="invisible"
+        android:background="@drawable/solid_color_shape"
+        android:elevation="5sp" />
 
     <ImageView
         android:id="@+id/addBtn"
-        android:layout_height="100dp"
-        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_width="70dp"
         android:src="@drawable/add"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true" />
 
     <ImageView
         android:id="@+id/next"
-        android:layout_width="100dp"
+        android:layout_width="50dp"
         android:layout_height="100dp"
         android:src="@drawable/next"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"/>
 
+    <TextView
+        android:id="@+id/answerOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is Answer 1"
+        android:layout_margin="15dp"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf="@id/next"
+        android:background="@drawable/answer"
+        android:layout_below="@id/flashcard_question"
+        android:elevation="5sp" />
+
+    <TextView
+        android:id="@+id/answerTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is Answer 2"
+        android:layout_margin="15dp"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf="@id/next"
+        android:background="@drawable/answer"
+        android:layout_below="@id/answerOne"
+        android:elevation="5sp" />
+
+    <TextView
+        android:id="@+id/answerThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is Answer 3"
+        android:layout_margin="15dp"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf="@id/next"
+        android:background="@drawable/answer"
+        android:layout_below="@id/answerTwo"
+        android:elevation="5sp" />
 
 </RelativeLayout>

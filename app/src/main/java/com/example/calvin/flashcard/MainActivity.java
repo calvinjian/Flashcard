@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
         //Initialize allFlashCards
         allFlashCards = flashcardDatabase.getAllCards();
 
+        if (allFlashCards != null && allFlashCards.size() > 0) {
+            ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashCards.get(0).getQuestion());
+            ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashCards.get(0).getAnswer());
+        }
+
         currentCardDisplayedIndex = 0;
 
         if (allFlashCards != null && allFlashCards.size() > 0) {
@@ -47,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.flashcard_question).setVisibility(View.VISIBLE);
             }
         });
-        //Set Onclicklistener to + icon
+        //Set OnClicklistener to + icon
         findViewById(R.id.addBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivityForResult(intent, 100);
             }
         });
-        //Set Onclicklistener to > icon
+        //Set OnClicklistener to > icon
         findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +70,25 @@ public class MainActivity extends AppCompatActivity {
                 }
                 ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashCards.get(currentCardDisplayedIndex).getQuestion());
                 ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashCards.get(currentCardDisplayedIndex).getAnswer());
+            }
+        });
+        //Set OnClickListener to Multiple Choice Options
+        findViewById(R.id.answerOne).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((TextView) findViewById(R.id.answerOne)).setBackgroundResource(R.drawable.solid_color_shape);
+            }
+        });
+        findViewById(R.id.answerTwo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((TextView) findViewById(R.id.answerTwo)).setBackgroundResource(R.drawable.solid_color_shape);
+            }
+        });
+        findViewById(R.id.answerThree).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((TextView) findViewById(R.id.answerThree)).setBackgroundResource(R.drawable.solid_color_shape);
             }
         });
     }

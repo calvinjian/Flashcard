@@ -59,18 +59,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    currentCardDisplayedIndex++;
-                    if (currentCardDisplayedIndex > allFlashCards.size() - 1) {
-                        currentCardDisplayedIndex = 0;
-                    }
-
-                    ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashCards.get(currentCardDisplayedIndex).getQuestion());
-                    ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashCards.get(currentCardDisplayedIndex).getAnswer());
+                currentCardDisplayedIndex++;
+                if (currentCardDisplayedIndex > allFlashCards.size() - 1) {
+                    currentCardDisplayedIndex = 0;
                 }
-                catch (Exception e) {
-                    
-                }
+                ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashCards.get(currentCardDisplayedIndex).getQuestion());
+                ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashCards.get(currentCardDisplayedIndex).getAnswer());
             }
         });
     }

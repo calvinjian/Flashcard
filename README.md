@@ -13,9 +13,9 @@ A basic flashcard app with a single flashcard.
 - [X] User can create muliple cards and browse through all created cards
  ## Optional
 - [ ] User can delete a card and no longer see it in their deck anymore
-- [ ] Flashcards are shown in random order instead of the order they were created in
+- [X] Flashcards are shown in random order instead of the order they were created in
 - [ ] User can edit a card and see the edit saved when they browse through their deck of cards
-- [ ] User can create flashcards with multiple answers and be able to browse through cards with multiple choice answers shown 
+- [X] User can create flashcards with multiple answers and be able to browse through cards with multiple choice answers shown 
  
  
 ## Lab 2
@@ -35,11 +35,11 @@ A basic flashcard app with a single flashcard.
 - [X] Push your progress to GitHub!
 
 ## Optional
-- [ ] User can edit a card
+- [X] User can edit a card
 - [ ] An error message is shown if the user doesn't enter both a Question and an Answer
-- [ ] A notification is shown if the card was created successfully
-- [ ] User can also enter multiple choice answers when creating a card
-- [ ] App is further styled and customized!
+- [X] A notification is shown if the card was created successfully
+- [X] User can also enter multiple choice answers when creating a card
+- [X] App is further styled and customized!
 
 
 ## Lab 1
@@ -60,6 +60,6 @@ A basic flashcard app with a single flashcard.
 ## Optional
 - [X] Toggle the flashcard between the question side and the answer side
 - [X] Style the question and answer side of the card to better distinguish between the two sides
-- [ ] Add selectable multiple choice answers beneath the card
-   - [ ] Change the background color of the multiple choice answers when clicked to indicate whether the question was answered correctly
+- [X] Add selectable multiple choice answers beneath the card
+   - [X] Change the background color of the multiple choice answers when clicked to indicate whether the question was answered correctly
 - [X] Further customize and style the card

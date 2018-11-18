@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class AddCardActivity extends AppCompatActivity {
 
@@ -13,6 +14,9 @@ public class AddCardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_card);
 
+        String Question = getIntent().getStringExtra("Question");
+        String Answer = getIntent().getStringExtra("Answer");
+
         //Set a cancel/close button to close current view
         findViewById(R.id.closeBtn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -20,6 +24,9 @@ public class AddCardActivity extends AppCompatActivity {
                 finish();
             }
         });
+        //Set up edit values
+        ((TextView) findViewById(R.id.addQuestion)).setText(Question);
+        ((TextView) findViewById(R.id.addAnswer)).setText(Answer);
         //Set a save button to save input text (Question and Answer)
         findViewById(R.id.saveBtn).setOnClickListener(new View.OnClickListener() {
             @Override

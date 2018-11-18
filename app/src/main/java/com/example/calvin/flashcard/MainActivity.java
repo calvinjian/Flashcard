@@ -13,11 +13,13 @@ public class MainActivity extends AppCompatActivity {
     FlashcardDatabase flashcardDatabase;
     List<Flashcard> allFlashCards;
     int currentCardDisplayedIndex;
+    Flashcard cardToEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        cardToEdit = new Flashcard(null, null);
 
         //Initialize flashCardDatabase variable
         flashcardDatabase = new FlashcardDatabase(this);
@@ -72,34 +74,45 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashCards.get(currentCardDisplayedIndex).getAnswer());
             }
         });
-        //Set OnClickListener to Multiple Choice Options
-        findViewById(R.id.answerOne).setOnClickListener(new View.OnClickListener() {
+        //Set OnClickListener to edit icon
+        findViewById(R.id.edit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((TextView) findViewById(R.id.answerOne)).setBackgroundResource(R.drawable.solid_color_shape);
-            }
-        });
-        findViewById(R.id.answerTwo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((TextView) findViewById(R.id.answerTwo)).setBackgroundResource(R.drawable.solid_color_shape);
-            }
-        });
-        findViewById(R.id.answerThree).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((TextView) findViewById(R.id.answerThree)).setBackgroundResource(R.drawable.solid_color_shape);
+                for (int i=0; i < allFlashCards.size(); i++) {
+                    if (((TextView) findViewById(R.id.flashcard_question)).getText().equals((allFlashCards.get(i).getQuestion()))) {
+                        cardToEdit = allFlashCards.get(i);
+                    }
+                }
+                Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
+                intent.putExtra("Question", ((TextView) findViewById(R.id.flashcard_question)).getText());
+                intent.putExtra("Answer", ((TextView) findViewById(R.id.flashcard_answer)).getText());
+                MainActivity.this.startActivityForResult(intent, 200);
             }
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 100) {
+        if (requestCode == 100 && resultCode == RESULT_OK) {
             try {
                 String question = data.getExtras().getString("Question");
                 String answer = data.getExtras().getString("Answer");
                 flashcardDatabase.insertCard(new Flashcard(question, answer));
+                ((TextView) findViewById(R.id.flashcard_question)).setText(question);
+                ((TextView) findViewById(R.id.flashcard_answer)).setText(answer);
+            }
+            catch (Exception e) {
+
+            }
+        }
+
+        else if (requestCode == 200 && resultCode == RESULT_OK) {
+            try {
+                String question = data.getExtras().getString("Question");
+                String answer = data.getExtras().getString("Answer");
+                cardToEdit.setQuestion(question);
+                cardToEdit.setAnswer(answer);
+                flashcardDatabase.updateCard(cardToEdit);
                 ((TextView) findViewById(R.id.flashcard_question)).setText(question);
                 ((TextView) findViewById(R.id.flashcard_answer)).setText(answer);
             }

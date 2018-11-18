@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/usr/local/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_navigate_next_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/usr/local/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_save_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -34,7 +34,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="imageAsset" value="/home/calvin/Downloads/close.png" />
-                                      <entry key="outputName" value="next" />
+                                      <entry key="outputName" value="save" />
                                     </map>
                                   </option>
                                 </PersistentState>

@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:layout_margin="15dp"
-        android:text="Who is the 44th President of the United States"
+        android:text="Sample Question"
         android:textSize="40sp"
         android:background="@drawable/solid_color_shape"
         android:elevation="5sp" />
@@ -56,5 +56,62 @@
         android:src="@drawable/edit"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/answerOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Answer Option 1"
+        android:layout_margin="15dp"
+        android:textSize="30dp"
+        android:background="@drawable/answer"
+        android:layout_below="@id/flashcard_question"
+        android:layout_toLeftOf="@id/next"
+        android:elevation="5sp" />
+
+    <TextView
+        android:id="@+id/answerTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Answer Option 2"
+        android:layout_margin="15dp"
+        android:textSize="30dp"
+        android:background="@drawable/answer"
+        android:layout_below="@id/answerOne"
+        android:layout_toLeftOf="@id/next"
+        android:elevation="5sp" />
+
+    <TextView
+        android:id="@+id/answerThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Answer Option 3"
+        android:layout_margin="15dp"
+        android:textSize="30dp"
+        android:background="@drawable/answer"
+        android:layout_below="@id/answerTwo"
+        android:layout_toLeftOf="@id/next"
+        android:elevation="5sp" />
+
+    <ImageView
+        android:id="@+id/eye"
+        android:layout_marginTop="10dp"
+        android:layout_height="70dp"
+        android:layout_width="70dp"
+        android:src="@drawable/eye"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_marginTop="30dp"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:src="@drawable/delete"
+        android:layout_below="@id/next"
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>

@@ -12,7 +12,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    
+    //Global Variables
     FlashcardDatabase flashcardDatabase;
     List<Flashcard> allFlashCards;
     int currentCardDisplayedIndex;
@@ -25,25 +26,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        //Initializing the global variables
         cardToEdit = new Flashcard(null, null);
-        //Initialize flashCardDatabase variable
         flashcardDatabase = new FlashcardDatabase(this);
-        //Initialize allFlashCards
-        allFlashCards = flashcardDatabase.getAllCards();
-
-        random = new ArrayList<>();
-
         nullFix = new Flashcard("Sample Question", "Answer", "Wrong Answer", "Wrong Answer");
-
+        flashcardDatabase.insertCard(nullFix);
+        allFlashCards = flashcardDatabase.getAllCards();
+        random = new ArrayList<>();
         check = new Flashcard(null, null, null, null);
+        currentCardDisplayedIndex = 0;
 
+        //Randomly shuffle an Arraylist containing the multiple choice options
         random.add((TextView) findViewById(R.id.answerOne));
         random.add((TextView) findViewById(R.id.answerTwo));
         random.add((TextView) findViewById(R.id.answerThree));
         Collections.shuffle(random);
 
-        currentCardDisplayedIndex = 0;
-
+       
         if (allFlashCards != null && allFlashCards.size() > 0) {
             ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashCards.get(0).getQuestion());
             ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashCards.get(0).getAnswer());
@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
             check = allFlashCards.get(currentCardDisplayedIndex);
             flashcardDatabase.deleteCard("Sample Question");
         }
-
-        flashcardDatabase.insertCard(nullFix);
 
 //        //Set the Flashcard's answer to visible and the Flashcard's question to invisible
 //        findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener(){
@@ -77,14 +75,17 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.addBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Moves to addCardActivity
                 Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
                 MainActivity.this.startActivityForResult(intent, 100);
             }
         });
+        
         //Set OnClicklistener to > icon
         findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Update Index and set up the views
                 currentCardDisplayedIndex++;
                 if (currentCardDisplayedIndex > allFlashCards.size() - 1) {
                     currentCardDisplayedIndex = 0;
@@ -97,14 +98,17 @@ public class MainActivity extends AppCompatActivity {
                 random.get(1).setText(check.getWrongAnswer1());
                 random.get(2).setText(check.getWrongAnswer2());
                 for (int i=0; i<random.size(); i++) {
+                    //Reset background color of the multiple choice options
                     random.get(i).setBackgroundResource(R.drawable.answer);
                 }
             }
         });
+        
         //Set OnClickListener to edit icon
         findViewById(R.id.edit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Find the current flashcard within allFlashCards so we can update that flashcard
                 for (int i=0; i < allFlashCards.size(); i++) {
                     if (((TextView) findViewById(R.id.flashcard_question)).getText().equals((allFlashCards.get(i).getQuestion()))) {
                         cardToEdit = allFlashCards.get(i);
@@ -113,10 +117,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
                 intent.putExtra("Question", ((TextView) findViewById(R.id.flashcard_question)).getText());
                 intent.putExtra("Answer", ((TextView) findViewById(R.id.flashcard_answer)).getText());
-
+                
                 MainActivity.this.startActivityForResult(intent, 200);
             }
         });
+        
         //Set OnClickListener to Multiple Choice
         findViewById(R.id.answerOne).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        
         //Set OnClickListener to Visible Icon
         findViewById(R.id.eye).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        
         //Set OnClickListener to Delete Icon
         findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Inserting cards into our database
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 100 && resultCode == RESULT_OK) {

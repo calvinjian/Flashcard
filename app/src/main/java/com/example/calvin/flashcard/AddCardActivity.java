@@ -14,6 +14,7 @@ public class AddCardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_card);
 
+        //Pulling input values from the Main Activity and storing them into different variables
         String Question = getIntent().getStringExtra("Question");
         String Answer = getIntent().getStringExtra("Answer");
         String WrongAnswer1 = getIntent().getStringExtra("WrongAnswer1");
@@ -31,7 +32,7 @@ public class AddCardActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.addAnswer)).setText(Answer);
         ((TextView) findViewById(R.id.addWrongAnswer1)).setText(WrongAnswer1);
         ((TextView) findViewById(R.id.addWrongAnswer2)).setText(WrongAnswer2);
-        //Set a save button to save input text (Question and Answer)
+        //Set a save button to save input text (Question, Answer, and Wrong Answers)
         findViewById(R.id.saveBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

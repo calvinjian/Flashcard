@@ -1,5 +1,29 @@
 ## Flashcard
 
+
+## Lab 4 : 
+
+### App Description
+A basic flashcard app with a single flashcard.
+
+### App Walk-though
+
+<img src="https://i.imgur.com/zxxr2EO.gif" width=200><br>
+
+## Required
+- [X] User sees a transition animation when going from the main screen to the add card screen.
+- [X] User sees a reveal animation when the flashcard is tapped and the answer is shown
+- [X] User sees flashcards animating in / out when the 'next' button is tapped
+
+## Optional
+- [ ] Extra styling is added!
+- [ ] User sees a countdown timer for each question
+- [ ] User sees a 'card flip' animation when the card is tapped
+- [ ] User sees a celebration animation with confetti when they answer a question correctly
+
+
+## Lab 3 : 
+
 ### App Description
 A basic flashcard app with a single flashcard.
 
@@ -7,7 +31,6 @@ A basic flashcard app with a single flashcard.
 
 <img src="https://imgur.com/9lsaNXA.gif" width=200><br>
 
-# Lab 3 : 
  ## Required
 - [X] User can create a card and still see their created card when the app is relaunched.
 - [X] User can create muliple cards and browse through all created cards
